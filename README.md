@@ -40,6 +40,10 @@ Thư viện VinSdk cho phép lập trình viên tích hợp quảng cáo các s�
         <item name="windowNoTitle">true</item>
     </style>
 ```   
+hoặc
+```gradle
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+```   
 ### Using
 - Để sử dụng quảng cáo dưới dạng dialog thì bạn cần sử dụng đoạn code sau
 ```gradle
