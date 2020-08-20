@@ -10,8 +10,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonMoreApp.setOnClickListener {
-            startActivity(AppsActivity.getIntent(this))
+            startActivity(AppsActivity.getIntent(this,""+BuildConfig.APPLICATION_ID))
         }
-        ShowDialog.promo(this)
+        buttonPromo.setOnClickListener {
+            ShowDialog.promo(this,""+BuildConfig.APPLICATION_ID)
+        }
+
     }
 }

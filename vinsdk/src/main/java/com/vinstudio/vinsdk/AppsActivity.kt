@@ -27,7 +27,8 @@ class AppsActivity : AppCompatActivity() {
         initActionbar()
         appAdapter = AppAdapter()
         serviceBuider = ServiceBuilder.buildService(ApiService::class.java)
-        getAllAppAndroid()
+        val applicationId = intent.getStringExtra("applicationId")
+        getAllAppAndroid(applicationId!!)
         recyclerViewApps.adapter = appAdapter
         appAdapter!!.setItemClick {
             val uri =
@@ -41,8 +42,9 @@ class AppsActivity : AppCompatActivity() {
         }
     }
 
-    fun getAllAppAndroid() {
-        callApi = serviceBuider!!.getAllApp("android")
+    fun getAllAppAndroid(applicationId:String) {
+        println("------------"+applicationId)
+        callApi = serviceBuider!!.getAllApp("android",applicationId)
         callApi?.enqueue(object : Callback<Result> {
             override fun onFailure(call: Call<Result>, t: Throwable) {
 
@@ -62,7 +64,7 @@ class AppsActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun getIntent(context: Context) =
-            Intent(context, AppsActivity::class.java)
+        fun getIntent(context: Context,applicationId: String) =
+            Intent(context, AppsActivity::class.java).putExtra("applicationId",applicationId)
     }
 }

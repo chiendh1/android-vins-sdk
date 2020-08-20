@@ -7,8 +7,8 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("api/apps")
-    fun getAllApp(@Query("platform") platform: String): Call<Result>
+    fun getAllApp(@Query("platform") platform: String,@Query("excludeId") excludeId: String): Call<Result>
 
     @GET("api/apps/promo")
-    fun getPromo(@Query("platform") platform: String): Call<ResultPromo>
+    fun getPromo(@Query("platform") platform: String,@Query("excludeId") excludeId: String): Call<ResultPromo>
 }
