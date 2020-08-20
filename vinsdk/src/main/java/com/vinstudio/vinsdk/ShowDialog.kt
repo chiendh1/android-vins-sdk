@@ -59,11 +59,9 @@ object ShowDialog {
         val dialog = Dialog(context,R.style.DialogCustomTheme)
         dialog.setContentView(view)
         dialog.show()
-        dialog.imageViewAppDialog.layoutParams.width = 1200
-       dialog.imageViewAppDialog.layoutParams.height = (1200*500)/1024
-        dialog.linerLayoutText.layoutParams.width = 1200
-        val window = dialog.getWindow();
-        window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog.imageViewAppDialog.layoutParams.width = 650
+       dialog.imageViewAppDialog.layoutParams.height = (650*500)/1024
+        dialog.linerLayoutText.layoutParams.width = 650
         Glide.with(context).load(app.banner).into(dialog.imageViewAppDialog)
         dialog.textViewNameAppDialog.text = app.name
         dialog.textViewDescriptionAppDialog.text = app.description
