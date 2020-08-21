@@ -17,7 +17,7 @@ Thư viện VinSdk cho phép lập trình viên tích hợp quảng cáo các s�
     }
 
     dependencies {
-         implementation 'com.github.chiendh1:android-vins-sdk:1.0.0'
+         implementation 'com.github.chiendh1:android-vins-sdk:1.0.3'
     }
 ```
   - Tiếp theo bạn cần thêm 
