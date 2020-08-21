@@ -2,22 +2,26 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_marginTop="@dimen/dp_10"
+    android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/dp_10"
-    app:cardElevation="@dimen/dp_10"
+    android:layout_marginTop="@dimen/dp_10"
     android:layout_marginEnd="@dimen/dp_10"
-    android:layout_height="wrap_content">
-    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+    app:cardElevation="@dimen/dp_10">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/imageViewAppItem"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/dp_10"
+            android:contentDescription="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@null" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="0dp"

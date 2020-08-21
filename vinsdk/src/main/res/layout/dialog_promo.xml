@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayoutDialog"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:gravity="center"
     android:layout_marginBottom="20dp"
+    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/linearLayoutDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -19,19 +19,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:scaleType="fitXY"
-            android:background="@color/colorStormGray"
             android:id="@+id/imageViewAppDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@null" />
+            android:background="@color/colorStormGray"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linerLayoutText"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:paddingBottom="@dimen/dp_10"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_10">
+
         <TextView
             android:id="@+id/textViewNameAppDialog"
             android:layout_width="match_parent"
@@ -49,14 +51,15 @@
             android:background="@android:color/white"
             android:paddingLeft="@dimen/dp_5"
             android:paddingRight="@dimen/dp_5"
-            android:textColor="@color/colorStormGray"
             android:paddingBottom="@dimen/dp_10"
+            android:textColor="@color/colorStormGray"
             android:textSize="@dimen/sp_12" />
     </LinearLayout>
+
     <ImageView
         android:id="@+id/imageCancelDialog"
-        android:layout_marginTop="@dimen/dp_10"
-        android:src="@drawable/ic_close"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/ic_close" />
 </LinearLayout>
