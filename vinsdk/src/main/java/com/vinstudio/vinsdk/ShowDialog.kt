@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.dialog_promo.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 object ShowDialog {
     private var serviceBuider: ApiService? = null
@@ -71,9 +73,12 @@ object ShowDialog {
         val dialog = Dialog(context, R.style.DialogCustomTheme)
         dialog.setContentView(view)
         dialog.show()
-        dialog.imageViewAppDialog.layoutParams.width = 650
-        dialog.imageViewAppDialog.layoutParams.height = (650 * 500) / 1024
-        dialog.linerLayoutText.layoutParams.width = 650
+        val displayMetrics = DisplayMetrics()
+        dialog.window?.windowManager?.getDefaultDisplay()?.getMetrics(displayMetrics)
+        val width = displayMetrics.widthPixels
+        dialog.imageViewAppDialog.layoutParams.width = width
+        dialog.imageViewAppDialog.layoutParams.height = (width * 500) / 1024
+        dialog.linerLayoutText.layoutParams.width = width
         Glide.with(context).load(app.banner).into(dialog.imageViewAppDialog)
         dialog.textViewNameAppDialog.text = app.name
         dialog.textViewDescriptionAppDialog.text = app.description
