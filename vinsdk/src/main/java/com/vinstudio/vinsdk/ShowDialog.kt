@@ -28,7 +28,7 @@ object ShowDialog {
     private var numberOpenAppNew: Int = 0
     private var callApiSend: Call<ClickApp>? = null
 
-    fun promo(context: Context, applicationId: String) {
+    @JvmStatic fun promo(context: Context, applicationId: String) {
         serviceBuider = ServiceBuilder.buildService(ApiService::class.java)
         sharedPreferences = context.getSharedPreferences("NumberOpenApp", Context.MODE_PRIVATE)
         numberOpenAppOld = sharedPreferences!!.getInt("Number", 0)

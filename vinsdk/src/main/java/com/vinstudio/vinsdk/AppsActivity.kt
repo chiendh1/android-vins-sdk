@@ -80,7 +80,7 @@ class AppsActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun getIntent(context: Context, applicationId: String) =
+        @JvmStatic fun getIntent(context: Context, applicationId: String) =
             Intent(context, AppsActivity::class.java).putExtra("applicationId", applicationId)
     }
 }
