@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageAds">
+        <attr name="backgroundSplash" format="integer" />
+        <attr name="logo_app" format="integer" />
+        <attr name="width_logo" format="integer" />
+        <attr name="height_logo" format="integer" />
+    </declare-styleable>
+</resources>

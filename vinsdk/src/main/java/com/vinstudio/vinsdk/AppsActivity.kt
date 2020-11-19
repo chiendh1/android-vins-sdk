@@ -3,14 +3,17 @@ package com.vinstudio.vinsdk
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.vinstudio.vinsdks.ApiService
-import com.vinstudio.vinsdks.Result
-import com.vinstudio.vinsdks.ServiceBuilder
+import com.vinstudio.vinsdk.api.ApiService
+import com.vinstudio.vinsdk.model.ClickApp
+import com.vinstudio.vinsdk.model.Result
+import com.vinstudio.vinsdk.api.ServiceBuilder
+import com.vinstudio.vinsdk.model.App
 import kotlinx.android.synthetic.main.activity_apps.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -67,7 +70,29 @@ class AppsActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
-                appAdapter!!.submitList(response.body()?.apps)
+                var listNew = mutableListOf<App>()
+                val pm = packageManager
+                val packages = pm.getInstalledApplications(PackageManager.GET_META_DATA)
+
+                for (packageInfo in packages) {
+                    Log.d("package", "Installed package :" + packageInfo.packageName)
+
+                }
+
+                var check =0
+                for (i in 0..response.body()!!.apps.size - 1){
+                    for (j in 0..packages.size-1){
+                        if (packages[j].packageName == response.body()!!.apps[i].applicationId){
+                            check =1
+                        }
+                    }
+                    if(check==0){
+                        listNew.add(response.body()!!.apps[i])
+                    }else{
+                        check=0
+                    }
+                }
+                appAdapter!!.submitList(listNew)
             }
         })
     }

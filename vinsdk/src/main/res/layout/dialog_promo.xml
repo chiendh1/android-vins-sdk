@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/linearLayoutDialog"
     android:layout_width="match_parent"
@@ -9,31 +9,38 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageViewAppDialog"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorStormGray"
             android:contentDescription="@null"
-            android:scaleType="center" />
+            android:scaleType="fitXY" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linerLayoutText"
-        android:paddingBottom="@dimen/dp_10"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_10"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:id="@+id/textViewNameAppDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +51,8 @@
             android:textSize="@dimen/sp_15" />
 
         <TextView
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:id="@+id/textViewDescriptionAppDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,6 +68,23 @@
         android:id="@+id/imageCancelDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:src="@drawable/ic_close" />
-</LinearLayout>
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/linerLayoutText" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

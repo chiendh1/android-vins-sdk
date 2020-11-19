@@ -1,4 +1,4 @@
-package com.vinstudio.vinsdks
+package com.vinstudio.vinsdk.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

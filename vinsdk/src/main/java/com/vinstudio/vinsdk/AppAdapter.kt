@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.vinstudio.vinsdks.App
+import com.vinstudio.vinsdk.model.App
 import kotlinx.android.synthetic.main.app_item.view.*
 
 class AppDiffCallback : DiffUtil.ItemCallback<App>() {

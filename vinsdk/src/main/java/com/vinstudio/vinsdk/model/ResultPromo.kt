@@ -1,8 +1,8 @@
-package com.vinstudio.vinsdk
+package com.vinstudio.vinsdk.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.vinstudio.vinsdks.App
+import com.vinstudio.vinsdk.model.App
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

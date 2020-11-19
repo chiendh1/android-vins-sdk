@@ -9,11 +9,16 @@ import android.net.Uri
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.vinstudio.vinsdks.ApiService
-import com.vinstudio.vinsdks.App
-import com.vinstudio.vinsdks.ServiceBuilder
+import com.vinstudio.vinsdk.api.ApiService
+import com.vinstudio.vinsdk.api.ServiceBuilder
+import com.vinstudio.vinsdk.model.App
+import com.vinstudio.vinsdk.model.ClickApp
+import com.vinstudio.vinsdk.model.ResultPromo
 import kotlinx.android.synthetic.main.dialog_promo.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -72,16 +77,25 @@ object ShowDialog {
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_promo, null)
         val dialog = Dialog(context, R.style.DialogCustomTheme)
         dialog.setContentView(view)
+        val layoutParams = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT
+        )
+
+
+        dialog.linearLayoutDialog.setLayoutParams(layoutParams);
         dialog.show()
         val displayMetrics = DisplayMetrics()
         dialog.window?.windowManager?.getDefaultDisplay()?.getMetrics(displayMetrics)
         val width = displayMetrics.widthPixels
-        dialog.imageViewAppDialog.layoutParams.width = width
+        dialog.imageViewAppDialog.layoutParams.width = width-40
         dialog.imageViewAppDialog.layoutParams.height = (width * 500) / 1024
         dialog.linerLayoutText.layoutParams.width = width
         Glide.with(context).load(app.banner).into(dialog.imageViewAppDialog)
+        println("------------------width-------------"+dialog.imageViewAppDialog.width)
+        println("------------------height-------------"+dialog.imageViewAppDialog.height)
         dialog.textViewNameAppDialog.text = app.name
         dialog.textViewDescriptionAppDialog.text = app.description
+
         dialog.imageCancelDialog.setOnClickListener {
             dialog.dismiss()
         }
