@@ -53,3 +53,38 @@ hoặc
 ```gradle
     startActivity(AppsActivity.getIntent(this,BuildConfig.APPLICATION_ID))
 ``` 
+- Để sử dụng quảng cáo dưới dạng native các ứng dụng bạn cũng thêm đoạn code sau
+- Đối với XMl bạn cần thêm đoạn code sau
+```gradle
+    <com.vinstudio.vinsdk.ImageAds
+        android:id="@+id/imageAds"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:backgroundSplash="@drawable/background"
+        app:logo_app="@drawable/logo"
+        app:height_logo="0"
+        app:width_logo="300" />
+``` 
+- backgroundSplash : Image Drawable Background Splash Screen
+- logo_app : Image Drawable Logo App
+- app:height_logo : Size Height Logo
+- app:width_logo : Size Width Logo
+- Nếu bạn muốn chuyển màn hình splash theo màn hình bạn muốn hoặc cancel màn splash screen thì bạn cần implement VinOnClickListener 
+- 
+```gradle
+class SplashScreen : AppCompatActivity(), VinOnClickListener {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash_screen)
+        imageAds.mImgSourceCancle!!.setOnClickListener {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+        imageAds.registerEventListener(this)
+    }
+    override fun startActivity() {
+
+    }
+}
+``` 
